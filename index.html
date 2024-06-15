@@ -1,0 +1,2033 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Bate </title>
+    <link rel="icon" type="image/x-icon" href="assets/logo.png">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/script.js">
+    </script>
+</head>
+
+<body>
+    <div class="logo">
+        <a href="/" class="img"> <img class="cont_img" src="../assets/logo.png" alt=""> </a>
+        <button id="nav_closer" onclick="close_side_nav()"><img src="assets/ControlersIcon/close_side_nav.png"> </button>
+        <button id="nav_show" onclick="show_side_nav()"><img src="assets/ControlersIcon/side_nav.svg"> </button>
+    </div>
+
+
+    <div class="container_all">
+
+        <nav id="nav">
+            <ul id="ul">
+                <li class="side_navs " id="li" title="Home" onclick="home()">
+                    <button>
+                    <img class="cont_img" src="assets/ControlersIcon/house-chimney.svg" alt="">
+                    <span id="nav_text">Home</span>
+                </button>
+                </li>
+
+
+                <li id="li" title="All song" onclick="all_songs()" class="side_navs ">
+                    <button>
+                    <img class="cont_img" src="assets/ControlersIcon/folder-open.svg" alt="">
+                    <span id="nav_text"> All songs</span>
+                </button>
+                </li>
+
+
+
+            </ul>
+
+            <div class="divider"></div>
+
+
+            <ul id="ul">
+
+                <li id="li" title="like song" class="side_navs ">
+                    <button value="1" onclick="like_song(this.value)" ">
+                    <img class=" cont_img " src="/assets/ControlersIcon/heart.svg " alt=" ">
+                    <span id="nav_text ">
+                        like song
+                    </span>
+                </button>
+            </li>
+
+
+
+
+                            <div class="divider "></div>
+
+                <ul id="ul " class="follow_img " title="Followeing ">
+
+
+                    
+
+                        
+
+                                                    <li class="side_navs " id="li " title="wou tang ">
+                                <button value="2 " onclick="artistPage() " ">
+
+
+                    <img src=" assets/avatars/face17.jpg">
+                    <span id="nav_text">wou tang</span>
+
+
+                    </button>
+                </li>
+
+            </ul>
+
+            <div class="divider"></div>
+
+
+            <ul class="play_list_ul" id="ul">
+
+                <li class="play_list_name">
+                    <form action="update" method="post">
+                        <input placeholder="play list name" name="playlist_name" type="text">
+                        <input type="hidden" name="playlist_btn">
+                    </form>
+                </li>
+
+
+                <li id="li">
+                    <button title="mynew playlist" value="47" onclick="playlistPage(this.value)" ">
+
+                      <img style=" border-radius: 0; " class="cont_img " src="assets/ControlersIcon/list.svg " id="play_list_icon " alt=" ">
+                            <span id="nav_text "> my_new playlist </span>
+
+                        </button>
+                    </li>
+                
+                    <li id="li ">
+                        <button title="hiphop " value="46 " onclick="playlistPage(this.value) " ">
+
+                    <img style=" border-radius: 0;" class="cont_img" src="assets/ControlersIcon/list.svg" id="play_list_icon" alt="">
+                    <span id="nav_text">hiphop </span>
+
+                    </button>
+                </li>
+
+            </ul>
+            <label for="play_list_input">
+                <button onclick="add_playlist()" title="add playlist" class="play_list_btn"> add playlist </button>
+            </label>
+        </nav>
+        <main id="main">
+            <header>
+
+                <div class="input">
+                    <input oninput="searching(this.value)" onfocus="searching(this.value)" class="inp" type="search" placeholder="Search music,artist and title">
+                </div>
+
+                <div title="mintesnota" onclick="document.querySelector('.user_menu').style.display = 'flex'" class="user">
+
+
+                    <img src="assets/avatars/face25.jpg" alt="user_avatar">
+                    <h1> mintesnota</h1>
+                    <div onmouseleave="this.style.display = 'none'" class="user_menu">
+                        <button title="my profile" onclick="openProfile()"> <img src="assets/ControlersIcon/user-regular.svg" alt="">Account</button>
+
+                        <button class="darker_btn" onclick="darker()"> <img style="width: 10%;" src="assets/ControlersIcon/lightbulb.svg" alt="">
+                        dark mode</button>
+                        <button style="display: none;" class="lighter_btn" onclick="lighter()">
+                        <img style="width: 10%;" src="assets/ControlersIcon/lightbulb.svg" alt="">
+                        light mode</button>
+
+                        <form method="post">
+                            <button id="logout" type="submit" name="logout"> <img src="assets/ControlersIcon/arrow-right-from-bracket.svg" alt="">logout</button>
+                        </form>
+                    </div>
+                </div>
+            </header>
+
+            <div class="divider"></div>
+            <!-----   home pages        ---------->
+            <div style="animation: play_list_intro .5s;" class="home_view">
+                <!--  user_avator         -->
+                <div class="overflow_container">
+                    <button value="2" onclick="artistPage(this.value)" ">
+         <div class=" user_artist_container ">
+         <span>
+             <img class="image_loader " src='assets/avatars/face17.jpg'>
+         </span>
+         <span>
+             wou tang         </span>
+ </div>
+ </button>
+            <button value="3 " onclick="artistPage(this.value) " ">
+                    <div class=" user_artist_container">
+                        <span>
+             <img class="image_loader" src='assets/avatars/face11.jpg'>
+         </span>
+                        <span>
+             camela cabelo         </span>
+                    </div>
+                    </button>
+                    <button value="4" onclick="artistPage(this.value)" ">
+         <div class=" user_artist_container ">
+         <span>
+             <img class="image_loader " src='assets/avatars/-5784208250990866348_121.jpg'>
+         </span>
+         <span>
+             Kekoke         </span>
+ </div>
+ </button>
+            <button value="7 " onclick="artistPage(this.value) " ">
+                    <div class=" user_artist_container">
+                        <span>
+             <img class="image_loader" src='assets/avatars/rophnan.png'>
+         </span>
+                        <span>
+             kebede         </span>
+                    </div>
+                    </button>
+                    <button value="10" onclick="artistPage(this.value)" ">
+         <div class=" user_artist_container ">
+         <span>
+             <img class="image_loader " src='assets/avatars/face18.jpg'>
+         </span>
+         <span>
+             minte         </span>
+ </div>
+ </button>
+            <button value="11 " onclick="artistPage(this.value) " ">
+                    <div class=" user_artist_container">
+                        <span>
+             <img class="image_loader" src='assets/avatars/face17.jpg'>
+         </span>
+                        <span>
+             pexka         </span>
+                    </div>
+                    </button>
+                    <button value="13" onclick="artistPage(this.value)" ">
+         <div class=" user_artist_container ">
+         <span>
+             <img class="image_loader " src='assets/avatars/-5892018488535527289_121.jpg'>
+         </span>
+         <span>
+             lollipo         </span>
+ </div>
+ </button>
+            <button value="15 " onclick="artistPage(this.value) " ">
+                    <div class=" user_artist_container">
+                        <span>
+             <img class="image_loader" src='assets/avatars/bate_music_player.png'>
+         </span>
+                        <span>
+             kesa         </span>
+                    </div>
+                    </button>
+                </div>
+                <!--  your follower          ------->
+                <div class="filterable_cards">
+                    <span style="position: absolute;margin: -30px 0 0 0;font-size: 20px;"> Your favorite song</span>
+                    <div onclick="play_up(this)" title="click to open " data-music_sours="04. Wu-Tang Clan - Famous Fighters (Skit).mp3" data-image="-5793167355201827533_119.jpg" data-artist="Wou Tang" data-title=" flight" data-id="3" class='card'>
+                        <img class="music_image_loader" src='assets/albem_arts/-5793167355201827533_119.jpg'>
+                        <p>
+                            Wou Tang <br>
+                            <span>  flight</span>
+
+                        </p>
+                    </div>
+                    <div onclick="play_up(this)" title="click to open " data-music_sours="Pakx remix Running to you 2021(3).m4a" data-image="-5901283141014892328_121.jpg" data-artist="run" data-title=" rune" data-id="16" class='card'>
+                        <img class="music_image_loader" src='assets/albem_arts/-5901283141014892328_121.jpg'>
+                        <p>
+                            run <br>
+                            <span>  rune</span>
+
+                        </p>
+                    </div>
+
+                </div>
+                <!--   musics     -->
+                <div class="filterable_cards">
+                    <span style="position: absolute;margin: -30px 0 0 0;font-size: 20px;"> Songs</span>
+
+                    <div onclick="play_up(this)" title="click to open " data-music_sours="Putumayo - Mediterranean Odyssey - 07 - Novalia - Ebla.mp3" data-image="PutumayoMediterraneanOdysseyFtCover.jpg" data-artist="hsd" data-title=" sds" data-id="24" class='card'>
+                        <img loading="lazy" class="music_image_loader" src='assets/albem_arts/PutumayoMediterraneanOdysseyFtCover.jpg'>
+                        <p>
+                            hsd <br>
+                            <span>  sds</span>
+                        </p>
+
+                    </div>
+
+
+                    <div onclick="play_up(this)" title="click to open " data-music_sours="04 Tekno-GO-__-NaijaVibes.com_.mp3" data-image="-5973025067841466033_121.jpg" data-artist="Naiad" data-title=" Go" data-id="11" class='card'>
+                        <img loading="lazy" class="music_image_loader" src='assets/albem_arts/-5973025067841466033_121.jpg'>
+                        <p>
+                            Naiad <br>
+                            <span>  Go</span>
+                        </p>
+
+                    </div>
+
+
+                    <div onclick="play_up(this)" title="click to open " data-music_sours="Joy Crookes - Trouble .mp3" data-image="-5892018488535527289_121.jpg" data-artist="Joy Chrookes" data-title=" Trouble" data-id="12" class='card'>
+                        <img loading="lazy" class="music_image_loader" src='assets/albem_arts/-5892018488535527289_121.jpg'>
+                        <p>
+                            Joy Chrookes <br>
+                            <span>  Trouble</span>
+                        </p>
+
+                    </div>
+
+
+                    <div onclick="play_up(this)" title="click to open " data-music_sours="04 Tekno-GO-__-NaijaVibes.com_.mp3" data-image="young_stunna.png" data-artist="Davido" data-title=" body" data-id="14" class='card'>
+                        <img loading="lazy" class="music_image_loader" src='assets/albem_arts/young_stunna.png'>
+                        <p>
+                            Davido <br>
+                            <span>  body</span>
+                        </p>
+
+                    </div>
+
+
+                    <div onclick="play_up(this)" title="click to open " data-music_sours="Pakx remix Running to you 2021(3).m4a" data-image="-5901283141014892328_121.jpg" data-artist="run" data-title=" rune" data-id="16" class='card'>
+                        <img loading="lazy" class="music_image_loader" src='assets/albem_arts/-5901283141014892328_121.jpg'>
+                        <p>
+                            run <br>
+                            <span>  rune</span>
+                        </p>
+
+                    </div>
+
+
+                    <div onclick="play_up(this)" title="click to open " data-music_sours="ROPHNAN - JEMAW _ ሮፍናን - ጀማው Ft HUPA.opus" data-image="-5779706532559172442_121.jpg" data-artist="Rophnan" data-title=" Jemaw" data-id="7" class='card'>
+                        <img loading="lazy" class="music_image_loader" src='assets/albem_arts/-5779706532559172442_121.jpg'>
+                        <p>
+                            Rophnan <br>
+                            <span>  Jemaw</span>
+                        </p>
+
+                    </div>
+
+
+                    <div onclick="play_up(this)" title="click to open " data-music_sours="Jaywillz - Medicine [Pakx Moombah Chill ReMix].opus" data-image="-5997693800916562454_121.jpg" data-artist="Obaby" data-title=" Brithing" data-id="20" class='card'>
+                        <img loading="lazy" class="music_image_loader" src='assets/albem_arts/-5997693800916562454_121.jpg'>
+                        <p>
+                            Obaby <br>
+                            <span>  Brithing</span>
+                        </p>
+
+                    </div>
+
+
+                    <div onclick="play_up(this)" title="click to open " data-music_sours="Putumayo - Mediterranean Odyssey - 11 - Glykeria - Pare Me Apopse Para Me.mp3" data-image="Cover.jpg" data-artist="sd" data-title=" sdf" data-id="25" class='card'>
+                        <img loading="lazy" class="music_image_loader" src='assets/albem_arts/Cover.jpg'>
+                        <p>
+                            sd <br>
+                            <span>  sdf</span>
+                        </p>
+
+                    </div>
+
+
+                    <div onclick="play_up(this)" title="click to open " data-music_sours="1706765939889.mp3.m4a" data-image="-5784208250990866348_121.jpg" data-artist="Rophnan" data-title="Dese" data-id="6" class='card'>
+                        <img loading="lazy" class="music_image_loader" src='assets/albem_arts/-5784208250990866348_121.jpg'>
+                        <p>
+                            Rophnan <br>
+                            <span> Dese</span>
+                        </p>
+
+                    </div>
+
+
+
+
+                </div>
+                <!--   New releases     -->
+                <div class="filterable_cards">
+                    <span style="position: absolute;margin: -30px 0 0 0;font-size: 20px;"> New Releases</span>
+
+                    <div onclick="play_up(this)" title="click to open " data-music_sours="Putumayo - Mediterranean Odyssey - 07 - Novalia - Ebla.mp3" data-image="PutumayoMediterraneanOdysseyFtCover.jpg" data-artist="hsd" data-title=" sds" data-id="24" class='card'>
+                        <img class="music_image_loader" src='assets/albem_arts/PutumayoMediterraneanOdysseyFtCover.jpg'>
+                        <p>
+                            hsd <br>
+                            <span>  sds</span>
+                        </p>
+                    </div>
+                    <div onclick="play_up(this)" title="click to open " data-music_sours="Putumayo - Mediterranean Odyssey - 11 - Glykeria - Pare Me Apopse Para Me.mp3" data-image="Cover.jpg" data-artist="sd" data-title=" sdf" data-id="25" class='card'>
+                        <img class="music_image_loader" src='assets/albem_arts/Cover.jpg'>
+                        <p>
+                            sd <br>
+                            <span>  sdf</span>
+                        </p>
+                    </div>
+                    <div onclick="play_up(this)" title="click to open " data-music_sours="Jaywillz - Medicine [Pakx Moombah Chill ReMix].opus" data-image="-5997693800916562454_121.jpg" data-artist="Obaby" data-title=" Brithing" data-id="20" class='card'>
+                        <img class="music_image_loader" src='assets/albem_arts/-5997693800916562454_121.jpg'>
+                        <p>
+                            Obaby <br>
+                            <span>  Brithing</span>
+                        </p>
+                    </div>
+                    <div onclick="play_up(this)" title="click to open " data-music_sours="What Left Of You Pakx Remix 2021.opus" data-image="-5806497808407180271_121.jpg" data-artist="pexka " data-title=" what left of you" data-id="19" class='card'>
+                        <img class="music_image_loader" src='assets/albem_arts/-5806497808407180271_121.jpg'>
+                        <p>
+                            pexka <br>
+                            <span>  what left of you</span>
+                        </p>
+                    </div>
+                    <div onclick="play_up(this)" title="click to open " data-music_sours="Drake - Hotline Bling.webm" data-image="-5903412959462403732_121.jpg" data-artist="drak" data-title="hot" data-id="18" class='card'>
+                        <img class="music_image_loader" src='assets/albem_arts/-5903412959462403732_121.jpg'>
+                        <p>
+                            drak <br>
+                            <span> hot</span>
+                        </p>
+                    </div>
+                    <div onclick="play_up(this)" title="click to open " data-music_sours="Dunnie - DND [Pakx ReMix].opus" data-image="-5997693800916562454_121.jpg" data-artist="Ashe" data-title=" run" data-id="17" class='card'>
+                        <img class="music_image_loader" src='assets/albem_arts/-5997693800916562454_121.jpg'>
+                        <p>
+                            Ashe <br>
+                            <span>  run</span>
+                        </p>
+                    </div>
+                    <div onclick="play_up(this)" title="click to open " data-music_sours="Pakx remix Running to you 2021(3).m4a" data-image="-5901283141014892328_121.jpg" data-artist="run" data-title=" rune" data-id="16" class='card'>
+                        <img class="music_image_loader" src='assets/albem_arts/-5901283141014892328_121.jpg'>
+                        <p>
+                            run <br>
+                            <span>  rune</span>
+                        </p>
+                    </div>
+                    <div onclick="play_up(this)" title="click to open " data-music_sours="Feel Me [Pakx Remix].opus" data-image="rophnan.png" data-artist="pexa" data-title=" feel me" data-id="15" class='card'>
+                        <img class="music_image_loader" src='assets/albem_arts/rophnan.png'>
+                        <p>
+                            pexa <br>
+                            <span>  feel me</span>
+                        </p>
+                    </div>
+                    <div onclick="play_up(this)" title="click to open " data-music_sours="04 Tekno-GO-__-NaijaVibes.com_.mp3" data-image="young_stunna.png" data-artist="Davido" data-title=" body" data-id="14" class='card'>
+                        <img class="music_image_loader" src='assets/albem_arts/young_stunna.png'>
+                        <p>
+                            Davido <br>
+                            <span>  body</span>
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+            <!------   artist page   -------------->
+            <div class="artist_page" style="display: none;">
+                <div class="aritst_profile_container">
+                    <div id=" artist" class="artist_profile_container" style="background-image:linear-gradient(to right,var(--backgroundColor),transparent,#00000000), url('assets/avatars/-5784208250990866348_121.jpg');">
+                        <div class="card_text">
+                            <h1>
+                                mintesnot </h1>
+                            <p>
+                            </p>
+                        </div>
+
+
+                        <form action="update" method="post">
+                            <input type="hidden" name="artist_id" value="1">
+                            <button type="submit" name="follow" title=" FOLLOW mintesnot "> Follow </button>
+                        </form>
+
+
+
+                        <p> followers 7 </p>
+                    </div>
+
+                    <button title="open all song" onclick="playAudio()" class="playbtn ">
+        <img onclick="this.src ='../assets/ControlersIcon/circle-pause.svg' " class="cont_img" src="../assets/ControlersIcon/circle-play.svg" alt=""> </button>
+                    <div class="artist_playlist_container">
+
+                        <p>
+                            6 songs</p>
+
+
+                        <li class="play_list">
+                            <div class="song_contain">
+                                <img src="assets/albem_arts/-5784208250990866348_121.jpg">
+                                <div class="song_detail">
+                                    <span class="artist_name"> Rophnan </span>
+                                    <span class="song_name">Dese</span>
+                                </div>
+                            </div>
+                            <div class="options">
+                                <button style="background-color: #a4a4a4d4;" onclick="play_up(this)" title="click to open " data-music_sours="1706765939889.mp3.m4a" data-image="-5784208250990866348_121.jpg" data-artist="Rophnan" data-title="Dese" data-id="6">
+
+                    <img class="cont_img" src="/assets/ControlersIcon/play-svgrepo-com.svg" alt="">
+                </button>
+
+
+
+                                <button style="background-color: #a4a4a4d4;" value="6" onclick="add_like_song(this.value)" title="add to like song">
+                    <img class="cont_img" src="/assets/ControlersIcon/heart.svg" alt="">
+                </button>
+
+
+                                <button style="background-color: #a4a4a4d4;" value="6" onclick="show_playlist_form(this.value)" title="add to playlist">
+                    <img class="cont_img" src="/assets/ControlersIcon/list.svg" alt="">
+                </button>
+                            </div>
+                        </li>
+
+                        <li class="play_list">
+                            <div class="song_contain">
+                                <img src="assets/albem_arts/-5779706532559172442_121.jpg">
+                                <div class="song_detail">
+                                    <span class="artist_name"> Rophnan </span>
+                                    <span class="song_name"> Jemaw</span>
+                                </div>
+                            </div>
+                            <div class="options">
+                                <button style="background-color: #a4a4a4d4;" onclick="play_up(this)" title="click to open " data-music_sours="ROPHNAN - JEMAW _ ሮፍናን - ጀማው Ft HUPA.opus" data-image="-5779706532559172442_121.jpg" data-artist="Rophnan" data-title=" Jemaw" data-id="7">
+
+                    <img class="cont_img" src="/assets/ControlersIcon/play-svgrepo-com.svg" alt="">
+                </button>
+
+
+
+                                <button style="background-color: #a4a4a4d4;" value="7" onclick="add_like_song(this.value)" title="add to like song">
+                    <img class="cont_img" src="/assets/ControlersIcon/heart.svg" alt="">
+                </button>
+
+
+                                <button style="background-color: #a4a4a4d4;" value="7" onclick="show_playlist_form(this.value)" title="add to playlist">
+                    <img class="cont_img" src="/assets/ControlersIcon/list.svg" alt="">
+                </button>
+                            </div>
+                        </li>
+
+                        <li class="play_list">
+                            <div class="song_contain">
+                                <img src="assets/albem_arts/-5892018488535527289_121.jpg">
+                                <div class="song_detail">
+                                    <span class="artist_name"> Joy Chrookes </span>
+                                    <span class="song_name"> Trouble</span>
+                                </div>
+                            </div>
+                            <div class="options">
+                                <button style="background-color: #a4a4a4d4;" onclick="play_up(this)" title="click to open " data-music_sours="Joy Crookes - Trouble .mp3" data-image="-5892018488535527289_121.jpg" data-artist="Joy Chrookes" data-title=" Trouble" data-id="12">
+
+                    <img class="cont_img" src="/assets/ControlersIcon/play-svgrepo-com.svg" alt="">
+                </button>
+
+
+
+                                <button style="background-color: #a4a4a4d4;" value="12" onclick="add_like_song(this.value)" title="add to like song">
+                    <img class="cont_img" src="/assets/ControlersIcon/heart.svg" alt="">
+                </button>
+
+
+                                <button style="background-color: #a4a4a4d4;" value="12" onclick="show_playlist_form(this.value)" title="add to playlist">
+                    <img class="cont_img" src="/assets/ControlersIcon/list.svg" alt="">
+                </button>
+                            </div>
+                        </li>
+
+                        <li class="play_list">
+                            <div class="song_contain">
+                                <img src="assets/albem_arts/-5903412959462403732_121.jpg">
+                                <div class="song_detail">
+                                    <span class="artist_name"> drak </span>
+                                    <span class="song_name">hot</span>
+                                </div>
+                            </div>
+                            <div class="options">
+                                <button style="background-color: #a4a4a4d4;" onclick="play_up(this)" title="click to open " data-music_sours="Drake - Hotline Bling.webm" data-image="-5903412959462403732_121.jpg" data-artist="drak" data-title="hot" data-id="18">
+
+                    <img class="cont_img" src="/assets/ControlersIcon/play-svgrepo-com.svg" alt="">
+                </button>
+
+
+
+                                <button style="background-color: #a4a4a4d4;" value="18" onclick="add_like_song(this.value)" title="add to like song">
+                    <img class="cont_img" src="/assets/ControlersIcon/heart.svg" alt="">
+                </button>
+
+
+                                <button style="background-color: #a4a4a4d4;" value="18" onclick="show_playlist_form(this.value)" title="add to playlist">
+                    <img class="cont_img" src="/assets/ControlersIcon/list.svg" alt="">
+                </button>
+                            </div>
+                        </li>
+
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+            </div>
+            <!-------  playlist page   -------------->
+            <div class="playlist_page"> </div>
+            <!---------like_song page   -------------->
+            <div class="like_songs"> </div>
+            <!--       all songs    -->
+            <div style="display: none;" class="playlist_container">
+
+                <div style="display: block;" class="playlist_container">
+                    <div>
+                        <p style="margin: 10px 0 15px 50px">All songs</p>
+                        <div class="play_list">
+                            <div class="song_contain">
+                                <img src="assets/albem_arts/-5997693800916562454_121.jpg">
+                                <div class="song_detail">
+                                    <span class="artist_name"> Obaby </span>
+                                    <span class="song_name"> Brithing</span>
+                                </div>
+                            </div>
+
+                            <div class="options">
+                                <button style="background-color: #a4a4a4d4;" onclick="play_up(this)" title="click to open " data-music_sours="Jaywillz - Medicine [Pakx Moombah Chill ReMix].opus" data-image="-5997693800916562454_121.jpg" data-artist="Obaby" data-title=" Brithing" data-id="20">
+                                    <img class="cont_img" src="/assets/ControlersIcon/play-svgrepo-com.svg" alt="">
+                                </button>
+
+
+
+                                <button style="background-color: #a4a4a4d4;" value="20" onclick="add_like_song(this.value)" title="add to like song">
+                                    <img class="cont_img" src="/assets/ControlersIcon/heart.svg" alt="">
+                                </button>
+
+
+
+                                <button style="background-color: #a4a4a4d4;opacity: 1;" value="20" onclick="show_playlist_form(this.value)" title="add to playlist">
+                                    <img class="cont_img" src="/assets/ControlersIcon/list.svg" alt="">
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                        <div class="play_list">
+                            <div class="song_contain">
+                                <img src="assets/albem_arts/-5901283141014892328_121.jpg">
+                                <div class="song_detail">
+                                    <span class="artist_name"> run </span>
+                                    <span class="song_name"> rune</span>
+                                </div>
+                            </div>
+
+                            <div class="options">
+                                <button style="background-color: #a4a4a4d4;" onclick="play_up(this)" title="click to open " data-music_sours="Pakx remix Running to you 2021(3).m4a" data-image="-5901283141014892328_121.jpg" data-artist="run" data-title=" rune" data-id="16">
+                                    <img class="cont_img" src="/assets/ControlersIcon/play-svgrepo-com.svg" alt="">
+                                </button>
+
+
+
+                                <button style="background-color: #a4a4a4d4;" value="16" onclick="add_like_song(this.value)" title="add to like song">
+                                    <img class="cont_img" src="/assets/ControlersIcon/heart.svg" alt="">
+                                </button>
+
+
+
+                                <button style="background-color: #a4a4a4d4;opacity: 1;" value="16" onclick="show_playlist_form(this.value)" title="add to playlist">
+                                    <img class="cont_img" src="/assets/ControlersIcon/list.svg" alt="">
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                        <div class="play_list">
+                            <div class="song_contain">
+                                <img src="assets/albem_arts/-5903412959462403732_121.jpg">
+                                <div class="song_detail">
+                                    <span class="artist_name"> drak </span>
+                                    <span class="song_name">hot</span>
+                                </div>
+                            </div>
+
+                            <div class="options">
+                                <button style="background-color: #a4a4a4d4;" onclick="play_up(this)" title="click to open " data-music_sours="Drake - Hotline Bling.webm" data-image="-5903412959462403732_121.jpg" data-artist="drak" data-title="hot" data-id="18">
+                                    <img class="cont_img" src="/assets/ControlersIcon/play-svgrepo-com.svg" alt="">
+                                </button>
+
+
+
+                                <button style="background-color: #a4a4a4d4;" value="18" onclick="add_like_song(this.value)" title="add to like song">
+                                    <img class="cont_img" src="/assets/ControlersIcon/heart.svg" alt="">
+                                </button>
+
+
+
+                                <button style="background-color: #a4a4a4d4;opacity: 1;" value="18" onclick="show_playlist_form(this.value)" title="add to playlist">
+                                    <img class="cont_img" src="/assets/ControlersIcon/list.svg" alt="">
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                        <div class="play_list">
+                            <div class="song_contain">
+                                <img src="assets/albem_arts/-5997693800916562454_121.jpg">
+                                <div class="song_detail">
+                                    <span class="artist_name"> Ashe </span>
+                                    <span class="song_name"> run</span>
+                                </div>
+                            </div>
+
+                            <div class="options">
+                                <button style="background-color: #a4a4a4d4;" onclick="play_up(this)" title="click to open " data-music_sours="Dunnie - DND [Pakx ReMix].opus" data-image="-5997693800916562454_121.jpg" data-artist="Ashe" data-title=" run" data-id="17">
+                                    <img class="cont_img" src="/assets/ControlersIcon/play-svgrepo-com.svg" alt="">
+                                </button>
+
+
+
+                                <button style="background-color: #a4a4a4d4;" value="17" onclick="add_like_song(this.value)" title="add to like song">
+                                    <img class="cont_img" src="/assets/ControlersIcon/heart.svg" alt="">
+                                </button>
+
+
+
+                                <button style="background-color: #a4a4a4d4;opacity: 1;" value="17" onclick="show_playlist_form(this.value)" title="add to playlist">
+                                    <img class="cont_img" src="/assets/ControlersIcon/list.svg" alt="">
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                        <div class="play_list">
+                            <div class="song_contain">
+                                <img src="assets/albem_arts/-5793167355201827533_119.jpg">
+                                <div class="song_detail">
+                                    <span class="artist_name"> Wou Tang </span>
+                                    <span class="song_name"> flight</span>
+                                </div>
+                            </div>
+
+                            <div class="options">
+                                <button style="background-color: #a4a4a4d4;" onclick="play_up(this)" title="click to open " data-music_sours="04. Wu-Tang Clan - Famous Fighters (Skit).mp3" data-image="-5793167355201827533_119.jpg" data-artist="Wou Tang" data-title=" flight" data-id="3">
+                                    <img class="cont_img" src="/assets/ControlersIcon/play-svgrepo-com.svg" alt="">
+                                </button>
+
+
+
+                                <button style="background-color: #a4a4a4d4;" value="3" onclick="add_like_song(this.value)" title="add to like song">
+                                    <img class="cont_img" src="/assets/ControlersIcon/heart.svg" alt="">
+                                </button>
+
+
+
+                                <button style="background-color: #a4a4a4d4;opacity: 1;" value="3" onclick="show_playlist_form(this.value)" title="add to playlist">
+                                    <img class="cont_img" src="/assets/ControlersIcon/list.svg" alt="">
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="play_list">
+                            <div class="song_contain">
+                                <img src="assets/albem_arts/-5869743460993577781_119.jpg">
+                                <div class="song_detail">
+                                    <span class="artist_name"> justen X ED </span>
+                                    <span class="song_name"> I dont care</span>
+                                </div>
+                            </div>
+
+                            <div class="options">
+                                <button style="background-color: #a4a4a4d4;" onclick="play_up(this)" title="click to open " data-music_sours="Ed_Sheeran_feat_Justin_Bieber_I_Don_t_Care.mp3" data-image="-5869743460993577781_119.jpg" data-artist="justen X ED" data-title=" I dont care"
+                                    data-id="23">
+                                    <img class="cont_img" src="/assets/ControlersIcon/play-svgrepo-com.svg" alt="">
+                                </button>
+
+
+
+                                <button style="background-color: #a4a4a4d4;" value="23" onclick="add_like_song(this.value)" title="add to like song">
+                                    <img class="cont_img" src="/assets/ControlersIcon/heart.svg" alt="">
+                                </button>
+
+
+
+                                <button style="background-color: #a4a4a4d4;opacity: 1;" value="23" onclick="show_playlist_form(this.value)" title="add to playlist">
+                                    <img class="cont_img" src="/assets/ControlersIcon/list.svg" alt="">
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                        <div class="play_list">
+                            <div class="song_contain">
+                                <img src="assets/albem_arts/-5806497808407180271_121.jpg">
+                                <div class="song_detail">
+                                    <span class="artist_name"> pexka  </span>
+                                    <span class="song_name"> what left of you</span>
+                                </div>
+                            </div>
+
+                            <div class="options">
+                                <button style="background-color: #a4a4a4d4;" onclick="play_up(this)" title="click to open " data-music_sours="What Left Of You Pakx Remix 2021.opus" data-image="-5806497808407180271_121.jpg" data-artist="pexka " data-title=" what left of you" data-id="19">
+                                    <img class="cont_img" src="/assets/ControlersIcon/play-svgrepo-com.svg" alt="">
+                                </button>
+
+
+
+                                <button style="background-color: #a4a4a4d4;" value="19" onclick="add_like_song(this.value)" title="add to like song">
+                                    <img class="cont_img" src="/assets/ControlersIcon/heart.svg" alt="">
+                                </button>
+
+
+
+                                <button style="background-color: #a4a4a4d4;opacity: 1;" value="19" onclick="show_playlist_form(this.value)" title="add to playlist">
+                                    <img class="cont_img" src="/assets/ControlersIcon/list.svg" alt="">
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="play_list">
+                            <div class="song_contain">
+                                <img src="assets/albem_arts/young_stunna.png">
+                                <div class="song_detail">
+                                    <span class="artist_name"> Davido </span>
+                                    <span class="song_name"> body</span>
+                                </div>
+                            </div>
+
+                            <div class="options">
+                                <button style="background-color: #a4a4a4d4;" onclick="play_up(this)" title="click to open " data-music_sours="04 Tekno-GO-__-NaijaVibes.com_.mp3" data-image="young_stunna.png" data-artist="Davido" data-title=" body" data-id="14">
+                                    <img class="cont_img" src="/assets/ControlersIcon/play-svgrepo-com.svg" alt="">
+                                </button>
+
+
+
+                                <button style="background-color: #a4a4a4d4;" value="14" onclick="add_like_song(this.value)" title="add to like song">
+                                    <img class="cont_img" src="/assets/ControlersIcon/heart.svg" alt="">
+                                </button>
+
+
+
+                                <button style="background-color: #a4a4a4d4;opacity: 1;" value="14" onclick="show_playlist_form(this.value)" title="add to playlist">
+                                    <img class="cont_img" src="/assets/ControlersIcon/list.svg" alt="">
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                        <div class="play_list">
+                            <div class="song_contain">
+                                <img src="assets/albem_arts/avatar-female-3.jpg">
+                                <div class="song_detail">
+                                    <span class="artist_name"> jefry  </span>
+                                    <span class="song_name"> on my way</span>
+                                </div>
+                            </div>
+
+                            <div class="options">
+                                <button style="background-color: #a4a4a4d4;" onclick="play_up(this)" title="click to open " data-music_sours="Jennifer Lopez - On My Way (Marry Me) [Pakx AfroChill ReMix].opus" data-image="avatar-female-3.jpg" data-artist="jefry " data-title=" on my way"
+                                    data-id="8">
+                                    <img class="cont_img" src="/assets/ControlersIcon/play-svgrepo-com.svg" alt="">
+                                </button>
+
+
+
+                                <button style="background-color: #a4a4a4d4;" value="8" onclick="add_like_song(this.value)" title="add to like song">
+                                    <img class="cont_img" src="/assets/ControlersIcon/heart.svg" alt="">
+                                </button>
+
+
+
+                                <button style="background-color: #a4a4a4d4;opacity: 1;" value="8" onclick="show_playlist_form(this.value)" title="add to playlist">
+                                    <img class="cont_img" src="/assets/ControlersIcon/list.svg" alt="">
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                        <div style="padding: 5px;text-align: center;cursor: pointer;" onclick="all_songs()" class="play_list">
+                            <span class="artist_name"> show more </span>
+                        </div>
+
+
+                    </div>
+
+
+
+
+
+                    <div style="display: none;" class="add_playlist_alert">
+                        <div class="alert_dialog_container">
+                            <form action="update" method="post">
+                                my play list
+
+                                <input type="hidden" value="" class="list_music_id" name="music_id">
+
+                                <div class="btn">
+                                    <button onclick="document.querySelector('.add_playlist_alert').style.display = 'none'" type="button">cancel</button>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+                </div>
+
+            </div>
+            <!--       my account       --->
+            <div class="user_profile_container">
+                <div id="artist" class="artist_profile_container" style="background-image:linear-gradient(to right,var(--backgroundColor),transparent,#00000000), url('assets/avatars/-5784208250990866348_121.jpg')" ;>
+                    <img src="" class="myimage" alt="">
+
+                    <div class="card_text">
+                        <span>
+                 <div>
+                     <img src="assets/avatars/face25.jpg" alt="">
+                     <button onclick="show_edit_diaog()" name="pro_pic" title="edit profile">Edit</button>
+                 </div>
+
+                 <div class="detail_text">
+                     <h1>
+                         mintesnota                     </h1>
+                     <p></p>
+                 </div>
+             </span>
+
+                    </div>
+
+                </div>
+
+
+                <form class="user_form" action="update" method="post" enctype="multipart/form-data">
+                    <label title="Change Background Image" for="artist_image">
+             <img class="cont_img" style="width:50px;position: absolute; right:50px; background-color:white;padding: 10px; border-radius: 20px;" src="assets/ControlersIcon/pencil.svg" alt="">
+         </label>
+
+                    <input type="hidden" value="1" name="user_id">
+                    <input oninput="checked_image(this)" type="file" name="artist_image" id="artist_image">
+                    <button name="image_update" class="imag_update_btn" title="upload your background-image" type="submit">Apply</button>
+                </form>
+                <div class="over_view">
+
+
+
+                    <div class="contets_over_view">
+
+                        <p> PUBLIC PLAYLIST</p>
+
+
+                        <p>
+                            FOLLOWING( 1 )</p>
+                        <p> FOLLOWERS( 7 )
+
+
+                    </div>
+                    <hr>
+
+                    <div class="playlist_container">
+
+                        <div id="public_song" class="play_con">
+
+                            <div class="play_list">
+                                <div class="song_contain">
+                                    <img id="artist_images" src='assets/albem_arts/-5784208250990866348_121.jpg'>
+                                    <div class="song_detail">
+                                        <span class="artist_name"> Rophnan </span>
+                                        <span class="song_name"> Dese</span>
+
+                                    </div>
+                                </div>
+                                <div class="options">
+
+                                    <button onclick="play_up(this)" title="Open " data-music_sours="1706765939889.mp3.m4a" data-image="-5784208250990866348_121.jpg" data-artist="Rophnan" data-title="Dese">
+                                 <img class="cont_img" src="/assets/ControlersIcon/play-svgrepo-com.svg" alt=""> </button>
+                                    <button onclick="show_music_editor(this)" data-music_artist="Rophnan" data-music_image="-5784208250990866348_121.jpg" data-music_title="Dese" data-music_id="6" title="Edit">
+                                 <img class="cont_img" src="/assets/ControlersIcon/pencil.svg" alt="">
+                             </button>
+                                    <button onclick="delete_music(this)" data-music_name="Rophnan" data-music_image="-5784208250990866348_121.jpg" data-music_id="6" title="Delete">
+                                 <img class="cont_img" src="/assets/ControlersIcon/trash-can.svg" alt=""> </button>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+
+
+                        <div id="public_song" class="play_con">
+
+                            <div class="play_list">
+                                <div class="song_contain">
+                                    <img id="artist_images" src='assets/albem_arts/-5779706532559172442_121.jpg'>
+                                    <div class="song_detail">
+                                        <span class="artist_name"> Rophnan </span>
+                                        <span class="song_name">  Jemaw</span>
+
+                                    </div>
+                                </div>
+                                <div class="options">
+
+                                    <button onclick="play_up(this)" title="Open " data-music_sours="ROPHNAN - JEMAW _ ሮፍናን - ጀማው Ft HUPA.opus" data-image="-5779706532559172442_121.jpg" data-artist="Rophnan" data-title=" Jemaw">
+                                 <img class="cont_img" src="/assets/ControlersIcon/play-svgrepo-com.svg" alt=""> </button>
+                                    <button onclick="show_music_editor(this)" data-music_artist="Rophnan" data-music_image="-5779706532559172442_121.jpg" data-music_title=" Jemaw" data-music_id="7" title="Edit">
+                                 <img class="cont_img" src="/assets/ControlersIcon/pencil.svg" alt="">
+                             </button>
+                                    <button onclick="delete_music(this)" data-music_name="Rophnan" data-music_image="-5779706532559172442_121.jpg" data-music_id="7" title="Delete">
+                                 <img class="cont_img" src="/assets/ControlersIcon/trash-can.svg" alt=""> </button>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+
+
+                        <div id="public_song" class="play_con">
+
+                            <div class="play_list">
+                                <div class="song_contain">
+                                    <img id="artist_images" src='assets/albem_arts/-5892018488535527289_121.jpg'>
+                                    <div class="song_detail">
+                                        <span class="artist_name"> Joy Chrookes </span>
+                                        <span class="song_name">  Trouble</span>
+
+                                    </div>
+                                </div>
+                                <div class="options">
+
+                                    <button onclick="play_up(this)" title="Open " data-music_sours="Joy Crookes - Trouble .mp3" data-image="-5892018488535527289_121.jpg" data-artist="Joy Chrookes" data-title=" Trouble">
+                                 <img class="cont_img" src="/assets/ControlersIcon/play-svgrepo-com.svg" alt=""> </button>
+                                    <button onclick="show_music_editor(this)" data-music_artist="Joy Chrookes" data-music_image="-5892018488535527289_121.jpg" data-music_title=" Trouble" data-music_id="12" title="Edit">
+                                 <img class="cont_img" src="/assets/ControlersIcon/pencil.svg" alt="">
+                             </button>
+                                    <button onclick="delete_music(this)" data-music_name="Joy Chrookes" data-music_image="-5892018488535527289_121.jpg" data-music_id="12" title="Delete">
+                                 <img class="cont_img" src="/assets/ControlersIcon/trash-can.svg" alt=""> </button>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+
+
+                        <div id="public_song" class="play_con">
+
+                            <div class="play_list">
+                                <div class="song_contain">
+                                    <img id="artist_images" src='assets/albem_arts/-5903412959462403732_121.jpg'>
+                                    <div class="song_detail">
+                                        <span class="artist_name"> drak </span>
+                                        <span class="song_name"> hot</span>
+
+                                    </div>
+                                </div>
+                                <div class="options">
+
+                                    <button onclick="play_up(this)" title="Open " data-music_sours="Drake - Hotline Bling.webm" data-image="-5903412959462403732_121.jpg" data-artist="drak" data-title="hot">
+                                 <img class="cont_img" src="/assets/ControlersIcon/play-svgrepo-com.svg" alt=""> </button>
+                                    <button onclick="show_music_editor(this)" data-music_artist="drak" data-music_image="-5903412959462403732_121.jpg" data-music_title="hot" data-music_id="18" title="Edit">
+                                 <img class="cont_img" src="/assets/ControlersIcon/pencil.svg" alt="">
+                             </button>
+                                    <button onclick="delete_music(this)" data-music_name="drak" data-music_image="-5903412959462403732_121.jpg" data-music_id="18" title="Delete">
+                                 <img class="cont_img" src="/assets/ControlersIcon/trash-can.svg" alt=""> </button>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+
+
+                        <div id="public_song" class="play_con">
+
+                            <div class="play_list">
+                                <div class="song_contain">
+                                    <img id="artist_images" src='assets/albem_arts/PutumayoMediterraneanOdysseyFtCover.jpg'>
+                                    <div class="song_detail">
+                                        <span class="artist_name"> hsd </span>
+                                        <span class="song_name">  sds</span>
+
+                                    </div>
+                                </div>
+                                <div class="options">
+
+                                    <button onclick="play_up(this)" title="Open " data-music_sours="Putumayo - Mediterranean Odyssey - 07 - Novalia - Ebla.mp3" data-image="PutumayoMediterraneanOdysseyFtCover.jpg" data-artist="hsd" data-title=" sds">
+                                 <img class="cont_img" src="/assets/ControlersIcon/play-svgrepo-com.svg" alt=""> </button>
+                                    <button onclick="show_music_editor(this)" data-music_artist="hsd" data-music_image="PutumayoMediterraneanOdysseyFtCover.jpg" data-music_title=" sds" data-music_id="24" title="Edit">
+                                 <img class="cont_img" src="/assets/ControlersIcon/pencil.svg" alt="">
+                             </button>
+                                    <button onclick="delete_music(this)" data-music_name="hsd" data-music_image="PutumayoMediterraneanOdysseyFtCover.jpg" data-music_id="24" title="Delete">
+                                 <img class="cont_img" src="/assets/ControlersIcon/trash-can.svg" alt=""> </button>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+
+
+                        <div id="public_song" class="play_con">
+
+                            <div class="play_list">
+                                <div class="song_contain">
+                                    <img id="artist_images" src='assets/albem_arts/Cover.jpg'>
+                                    <div class="song_detail">
+                                        <span class="artist_name"> sd </span>
+                                        <span class="song_name">  sdf</span>
+
+                                    </div>
+                                </div>
+                                <div class="options">
+
+                                    <button onclick="play_up(this)" title="Open " data-music_sours="Putumayo - Mediterranean Odyssey - 11 - Glykeria - Pare Me Apopse Para Me.mp3" data-image="Cover.jpg" data-artist="sd" data-title=" sdf">
+                                 <img class="cont_img" src="/assets/ControlersIcon/play-svgrepo-com.svg" alt=""> </button>
+                                    <button onclick="show_music_editor(this)" data-music_artist="sd" data-music_image="Cover.jpg" data-music_title=" sdf" data-music_id="25" title="Edit">
+                                 <img class="cont_img" src="/assets/ControlersIcon/pencil.svg" alt="">
+                             </button>
+                                    <button onclick="delete_music(this)" data-music_name="sd" data-music_image="Cover.jpg" data-music_id="25" title="Delete">
+                                 <img class="cont_img" src="/assets/ControlersIcon/trash-can.svg" alt=""> </button>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+
+                        <div style="display: none;" class="delete_container">
+                            <div>
+                                <span> Are you sure you want to delete</span>
+
+                                <div class="delete_music_detail">
+                                    <img class="delete_music_image" id="artist_images" src='assets/albem_arts/Cover.jpg'>
+                                    <h1 class="delete_music_name"></h1>
+                                </div>
+                                <form method="post" action="update">
+                                    <button onclick="close_delete_dialog()" type="button"> cancel</button>
+                                    <input value="" name="music_id" class="delete_music_id" type="hidden">
+                                    <button name="music_delete_btn" type="submit"> delete</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-------           user profile editor          ------->
+                <div class="user_editor_container">
+                    <form class="edit_user_form" method="post" enctype="multipart/form-data" action="update">
+                        <label class="profile_pics" for="profile_pic">
+                 <img src="assets/avatars/face25.jpg" class="pro_image">
+                 <span>
+                     <p>change image</p>
+                 </span>
+                 <input name="pro_file" oninput="checked_profile_image(pro_file)" type="file" id="profile_pic">
+             </label>
+                        <label for="user_name">
+                 <input oninput="if(this.value == null || this.value == ''){this.style.border = 'solid 2px red'}" type="text" name="user_name" placeholder="user name" value="mintesnota">
+                 <input type="hidden" name="id" placeholder="user name" value="1">
+                 <input type="hidden" name="pre_image" value="face25.jpg">
+             </label>
+                        <label for="email">
+                 <input oninput="if(this.value == null || this.value == ''){this.style.border = 'solid 1px red'}" type="email" name="email" placeholder="email" value="mintesnotyess@gmail.com">
+             </label>
+
+                        <label for="description">
+                 <textarea name="description" placeholder="some description"></textarea>
+             </label>
+                        <lable style="cursor: pointer;" onclick="
+             document.querySelector('.edit_user_form').style.display = 'none';
+             document.querySelector('.change_password').style.display = 'flex';
+             ">
+                            change password
+                        </lable>
+                        <div class="btn">
+
+                            <button onclick="close_edit_diaog()" type="button"> Cancel</button>
+                            <button name="profile_update" type="submit"> Change</button>
+                        </div>
+                    </form>
+
+                    <form class="change_password" style="display:none;" method="post">
+                        <label id="pass_error" style="color: red;font-size:15px;">
+             </label>
+
+                        <label for="pass">
+                 <input type="text" id="old_password" placeholder="old password" value="old password">
+             </label>
+                        <label for="pass">
+                 <input type="text" id="new_password" placeholder="new password" value="new password">
+             </label>
+                        <label for="pass">
+                 <input type="text" id="password_conf" placeholder="conform password" value="conform password">
+             </label>
+
+
+                        <div class="btn">
+                            <button onclick="
+             document.querySelector('.edit_user_form').style.display = 'flex';
+             document.querySelector('.change_password').style.display = 'none';
+             " type="button"> Cancel</button>
+                            <button onclick="change_password()" name="profile_update" type="button"> Change</button>
+                        </div>
+
+                    </form>
+
+
+                </div>
+
+                <!-----------------     music editor    ----------------------->
+
+                <div class="music_editor_container">
+                    <form method="post" enctype="multipart/form-data" action="update">
+                        <label class="profile_pics" for="albem_pic">
+                 <img src="" class="edit_music_image">
+                 <span>
+                     <p>change albem art</p>
+                 </span>
+
+                 <input name="albem_art" oninput="checked_albem_art(this)" id="albem_pic" type="file">
+             </label>
+                        <label for="artist">
+                 <input oninput="if(this.value == null || this.value == ''){this.style.border = 'solid 1px red'}" type="text" name="artist" placeholder="artist name" class="edit_artist_name" value="">
+                 <input type="hidden" name="music_id" placeholder="user name" class="edit_music_id" value="">
+                 <input type="hidden" name="pre_albem_art" placeholder="user name" class="edit_pre_albem_art" value="">
+             </label>
+                        <label for="title">
+                 <input oninput="if(this.value == null || this.value == ''){this.style.border = 'solid 1px red'}" type="text" name="title" placeholder="title" class="edit_music_title" value="">
+             </label>
+                        <div class="btn">
+                            <button onclick="close_music_editor()" type="button"> Cancel</button>
+                            <button name="music_update" type="submit"> Applay</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </main>
+        <!--------        controllers ---------------->
+        <!---------      pop alert         ----------------------------->
+        <div class="pop_container">
+            <span id="pop_text"></span>
+            <button onclick="document.querySelector('.pop_container').style.display='none'">x</button>
+        </div>
+        <!----------------------------->
+
+
+        <div class="footer controllers">
+            <div style="display: none;" class="fixed_albem_detail">
+                <span><img id="fixedMusicImage" src="" alt=""></span>
+                <div class="details">
+                    <span id="fixedMusicTitle">Music title</span>
+                    <span id="fixedMusicArtist">Artist</span>
+                </div>
+            </div>
+
+            <div class="music_controlls">
+                <div onclick="openFullScreen()" class="left_albem">
+                    <img title="duble click to exit full screen" ondblclick="exit_full_screen()" src="" class="footer_img">
+
+                    <div onclick="full_screen()" class="audio_details">
+                        <div class="some_detail">
+
+                            <span id="music_title"> </span>
+                            <span id="artist_min"> </span>
+                        </div>
+
+                        <audio id="audio">
+                </audio>
+                    </div>
+                </div>
+
+                <div class="controler">
+                    <button id="like_music_footer_id" style="opacity: .5; scale: .8;" onclick=" add_like_song(this.value)" title="add to like song">
+                <img class="cont_img" loading="lazy" src="assets/ControlersIcon/heart.svg">
+            </button>
+
+                    <button title="previeus" onclick="previeus()">
+                <img class="cont_img hidden_btn" loading="lazy" id="pre" src="assets/ControlersIcon/left-arrow-svgrepo-com.svg">
+            </button>
+
+                    <button title="pause" onclick="pauseAudio()" id="stop" style="display:none;">
+                <img class="cont_img " loading="lazy" src="assets/ControlersIcon/pause-svgrepo-com.svg">
+            </button>
+
+                    <button title="play" id="play" onclick="playAudio()">
+                <img class="cont_img " loading="lazy" src="assets/ControlersIcon/play-svgrepo-com.svg">
+
+            </button>
+                    <button title="next" onclick="nextAudio()">
+                <img class="cont_img hidden_btn " loading="lazy" id="next" src="assets/ControlersIcon/right-arrow-svgrepo-com.svg">
+
+            </button>
+                    <button title="loop " onclick="returnAudio()">
+                <img class="cont_img hidden_btn" loading="lazy" id="return_audio" src="assets/ControlersIcon/repeat-svgrepo-com.svg">
+
+            </button>
+
+                </div>
+
+                <div class="time ">
+                    <input onload="changeDuration()" oninput="changeDuration()" type="range" min="0" max="100" value="0" id="times">
+                    <div class="duration_foll_cont">
+                        <div class="duration_foll"></div>
+                    </div>
+                </div>
+
+
+                <div class="volume hidden_volume">
+                    <img loading="lazy" class="cont_img " title="mute" onclick="muteVolume()" src="assets/ControlersIcon/volume-max-svgrepo-com.svg" id="muted">
+                    <input class="cont_img " type="range" oninput="volumeChange()" max="100" min="0" id="volume">
+                    <br>
+                    <p id="isVolume" class="hidden_btn"> </p>
+
+
+                    <button style="display: none;" title="exit full screen" onclick="exit_full_screen()" id="exitFullScreen">
+                <img loading="lazy" class="cont_img " src="assets/ControlersIcon/arrows-to-circle.svg" alt="">
+            </button>
+
+                    <button title="full screen" style="margin: 0 0 0 10px;" id="fullScreen" onclick="full_screen()">
+                <img loading="lazy" class="cont_img" src="assets/ControlersIcon/arrow-up-right-from-square.svg" alt="">
+            </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+
+
+
+<script>
+    var home_view = document.querySelector('.home_view');
+    var music_id = document.querySelectorAll('.music_id');
+    var user_profile_container = document.querySelector('.user_profile_container');
+    var aritst_profile_container = document.querySelector('.aritst_profile_container');
+    var playlist_container = document.querySelector('.playlist_container');
+    var side_navs = document.querySelectorAll('.side_navs');
+    var artist_page = document.querySelector('.artist_page');
+    var playlist_page = document.querySelector('.playlist_page');
+
+
+    var add_playlist_btn = document.querySelector('.add_playlist_btn');
+    var darker_btn = document.querySelector('.darker_btn');
+    var lighter_btn = document.querySelector('.lighter_btn');
+    var duration_foll = document.querySelector('.duration_foll');
+    var player_controll_container = document.querySelector('.player_controll_container');
+
+    var loading = document.querySelector('.loading');
+    var music_controlls = document.querySelector('.music_controlls');
+    var body = document.body;
+
+    var fixed_albem_detail = document.querySelector('.fixed_albem_detail');
+    var fixedMusicArtist = document.getElementById('fixedMusicArtist');
+    var fixedMusicTitle = document.getElementById('fixedMusicTitle');
+    var fixedMusicImage = document.getElementById('fixedMusicImage');
+
+    var time_slider = document.getElementById('times');
+    var timeCorsor = document.getElementById('timeCursor');
+    var music_title = document.getElementById('music_title');
+    var like_music_footer_id = document.getElementById('like_music_footer_id');
+    var mutedImg = document.getElementById('muted');
+    var artist_min = document.getElementById('artist_min');
+    var carousel_inner = document.getElementById('carousel-inner');
+    var audio = document.getElementById('audio');
+    var next = document.getElementById('next');
+    var pre = document.getElementById('pre');
+    var stop = document.getElementById('stop');
+    var play = document.getElementById('play');
+    var main = document.getElementById('main');
+
+    var footer = document.querySelector('.footer');
+    var musicLister = document.querySelector('.musicLister');
+    var card = document.querySelector('card');
+    var controler = document.querySelector('.controler');
+    var footerImg = document.querySelector('.footer_img');
+    var MusicAlbum = document.querySelector('.MusicAlbum');
+    var priPlay = document.getElementById('.priPlay');
+    var input = document.querySelector('.inp');
+
+    var all_music = document.querySelector('.all_music');
+
+    var mostplayed = document.querySelector('.mostplayed');
+    var active = document.querySelector('.active');
+    var filterableCards = document.querySelector('.filterable_cards');
+    var root = document.documentElement;
+    let showVolume = document.getElementById('isVolume');
+    var return_audio = document.getElementById('return_audio');
+    let text_color = "#272727";
+
+    let volume = document.getElementById('volume');
+    let currentTrack = 0;
+    var loop = false;
+    let currentSlide = 0;
+    let audioPlayed = false;
+
+
+
+
+
+    const slides = document.querySelectorAll('.card');
+    var exitFullScreen = document.getElementById('exitFullScreen');
+    var fullScreen = document.getElementById('fullScreen');
+    const totalSlides = slides.length;
+
+    let count_imgs = document.querySelectorAll('.cont_img');
+    let details = document.querySelectorAll('.details');
+
+    function showSlide(index) {
+
+        slides.forEach((slide) => {
+            slide.style.transform = `translateX(-${index * 100}%)`;
+        });
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        showSlide(currentSlide);
+    }
+
+
+    //--------from php -------------------------
+
+
+
+
+
+    let musics = ['Putumayo - Mediterranean Odyssey - 11 - Glykeria - Pare Me Apopse Para Me.mp3', 'Putumayo - Mediterranean Odyssey - 07 - Novalia - Ebla.mp3', '04. Wu-Tang Clan - Famous Fighters (Skit).mp3', 'Joy Crookes - Trouble .mp3', 'Dunnie - DND [Pakx ReMix].opus', 'ROPHNAN - JEMAW _ ሮፍናን - ጀማው Ft HUPA.opus', 'What Left Of You Pakx Remix 2021.opus', '04 Tekno-GO-__-NaijaVibes.com_.mp3', 'Drake - Hotline Bling.webm', 'Jennifer Lopez - On My Way (Marry Me) [Pakx AfroChill ReMix].opus', 'Pakx remix Running to you 2021(3).m4a', '1706765939889.mp3.m4a', 'Jaywillz - Medicine [Pakx Moombah Chill ReMix].opus', 'Feel Me [Pakx Remix].opus', '04 Tekno-GO-__-NaijaVibes.com_.mp3', ];
+    let Image = ['Cover.jpg', 'PutumayoMediterraneanOdysseyFtCover.jpg', '-5793167355201827533_119.jpg', '-5892018488535527289_121.jpg', '-5997693800916562454_121.jpg', '-5779706532559172442_121.jpg', '-5806497808407180271_121.jpg', '-5973025067841466033_121.jpg', '-5903412959462403732_121.jpg', 'avatar-female-3.jpg', '-5901283141014892328_121.jpg', '-5784208250990866348_121.jpg', '-5997693800916562454_121.jpg', 'rophnan.png', 'young_stunna.png', ];
+    let artist = ['sd', 'hsd', 'Wou Tang', 'Joy Chrookes', 'Ashe', 'Rophnan', 'pexka ', 'Naiad', 'drak', 'jefry ', 'run', 'Rophnan', 'Obaby', 'pexa', 'Davido', ];
+    let title = [' sdf', ' sds', ' flight', ' Trouble', ' run', ' Jemaw', ' what left of you', ' Go', 'hot', ' on my way', ' rune', 'Dese', ' Brithing', ' feel me', ' body', ];
+    let id = ['25', '24', '3', '12', '17', '7', '19', '11', '18', '8', '16', '6', '20', '15', '14', ];
+
+
+    audio.src = 'assets/musics/' + musics[0];
+    footerImg.src = 'assets/albem_arts/' + Image[0];
+    music_title.innerHTML = title[0];
+    like_music_footer_id.value = id[0];
+    artist_min.innerHTML = artist[0];
+    fixedMusicArtist.innerHTML = artist[0];
+    fixedMusicTitle.innerHTML = title[0];
+    fixedMusicImage.src = 'assets/albem_arts/' + Image[0];
+    //--------------------------------------------------------------------------
+
+
+
+    // document.addEventListener("keydown", e => {
+
+
+    //     if (e.key.toLocaleLowerCase() == " ") {
+
+    //         if (audioPlayed == false) {
+    //             return playAudio();
+    //         }
+    //         if (audioPlayed == true) {
+    //             return pauseAudio();
+    //         }
+    //     }
+
+    //     if (e.key == "ArrowRight") {
+    //         return nextAudio();
+    //     }
+    //     if (e.key == "ArrowLeft") {
+    //         return previeus();
+    //     }
+    //     if (e.key == "ArrowUp") {
+    //         return full_screen();
+    //     }
+    //     if (e.key == "ArrowDown") {
+    //         return exit_full_screen();
+    //     }
+
+    // })
+
+
+
+
+    function play_up(card) {
+        var music_sours = card.getAttribute("data-music_sours");
+        var image_sours = card.getAttribute("data-image");
+        var image_artist = card.getAttribute("data-artist");
+        var image_title = card.getAttribute("data-title");
+        var data_musice_id = card.getAttribute("data-id");
+
+        audio.src = 'assets/musics/' + music_sours;
+        footerImg.src = 'assets/albem_arts/' + image_sours;
+
+
+        for (var i = 0; i < music_id.length; i++) {
+            var music_ids = document.querySelectorAll('.music_id')[i];
+            music_ids.value = data_musice_id;
+
+        }
+        like_music_footer_id.value = data_musice_id;
+        music_title.innerHTML = image_title;
+
+        artist_min.innerHTML = image_artist;
+
+        fixedMusicArtist.innerHTML = image_artist;
+        fixedMusicTitle.innerHTML = image_title;
+        fixedMusicImage.src = 'assets/albem_arts/' + image_sours;
+
+        return playAudio();
+
+    }
+
+
+
+    function changeDuration() {
+
+        let slider_position = audio.duration * (time_slider.value / 100);
+        audio.currentTime = slider_position;
+        duration_foll.style.width = slider_position + '%';
+
+
+    }
+
+    setInterval(
+        function changePosition() {
+            let position = 0;
+
+            if (!isNaN(audio.duration)) {
+                position = audio.currentTime * (100 / audio.duration);
+                time_slider.value = position;
+                time_slider.style.transition = '1s'
+                duration_foll.style.width = position + '%';
+            }
+        }, 10);
+
+
+
+
+    for (var i = 0; i < music_id.length; i++) {
+        var musics_id = document.querySelectorAll('.music_id')[i];
+        musics_id.value = id[0];
+
+    }
+
+
+    function playAudio() {
+        audio.play();
+        stop.style.display = 'block';
+        play.style.display = 'none';
+        audioPlayed = true;
+    }
+
+
+    function pauseAudio() {
+        audio.pause();
+        stop.style.display = 'none';
+        play.style.display = 'block';
+        audioPlayed = false;
+    }
+
+
+
+    function returnAudio() {
+
+        if (loop == false) {
+            return_audio.style.transform = "rotate(180deg)";
+            return_audio.title = "no loop";
+            loop = true;
+            return_audio.style.transition = "1s";
+            return_audio.src = "assets/ControlersIcon/repeat-all-svgrepo-com.svg";
+
+        } else {
+            return_audio.style.transform = "rotate(0)";
+            return_audio.title = "loop";
+            loop = false;
+            return_audio.src = "assets/ControlersIcon/repeat-svgrepo-com.svg";
+            return_audio.style.transition = "1s";
+        }
+
+
+
+    }
+
+    audio.addEventListener('ended', function() {
+
+        if (loop == true) {
+            playAudio();
+        } else {
+            return nextAudio();
+        }
+
+    })
+
+
+
+
+
+    function previeus() {
+
+        currentTrack--;
+
+        var played = audio.src = 'assets/musics/' + musics[currentTrack];
+        music_title.innerHTML = title[currentTrack];
+        like_music_footer_id.value = id[currentTrack];
+
+        footerImg.src = 'assets/albem_arts/' + Image[currentTrack];
+
+        artist_min.innerHTML = artist[currentTrack];
+
+        fixedMusicArtist.innerHTML = artist[currentTrack];
+        fixedMusicTitle.innerHTML = title[currentTrack];
+        fixedMusicImage.src = 'assets/albem_arts/' + Image[currentTrack];
+
+        if (currentTrack < 1) {
+            currentTrack = 0;
+            var played = audio.src = 'assets/musics' + musics[currentTrack];
+            music_title.innerHTML = title[currentTrack];
+            like_music_footer_id.value = id[currentTrack];
+
+
+            footerImg.src = 'assets/albem_arts/' + Image[currentTrack];
+
+            artist_min.innerHTML = artist[currentTrack];
+
+            fixedMusicArtist.innerHTML = artist[currentTrack];
+            fixedMusicTitle.innerHTML = title[currentTrack];
+            fixedMusicImage.src = 'assets/albem_arts/' + Image[currentTrack];
+        }
+
+        return playAudio();
+
+
+    }
+
+    function nextAudio() {
+        currentTrack++;
+
+        var played = audio.src = 'assets/musics/' + musics[currentTrack];
+        music_title.innerHTML = title[currentTrack];
+        like_music_footer_id.value = id[currentTrack];
+
+        footerImg.src = 'assets/albem_arts/' + Image[currentTrack];
+
+        artist_min.innerHTML = artist[currentTrack];
+
+        fixedMusicArtist.innerHTML = artist[currentTrack];
+        fixedMusicTitle.innerHTML = title[currentTrack];
+        fixedMusicImage.src = 'assets/albem_arts/' + Image[currentTrack];
+
+        if (musics.length == currentTrack) {
+            currentTrack = 0;
+            var played = audio.src = 'assets/musics/' + musics[currentTrack];
+            music_title.innerHTML = title[currentTrack];
+            like_music_footer_id.value = id[currentTrack];
+
+            footerImg.src = 'assets/albem_arts/' + Image[currentTrack];
+
+            artist_min.innerHTML = artist[currentTrack];
+
+            fixedMusicArtist.innerHTML = artist[currentTrack];
+            fixedMusicTitle.innerHTML = title[currentTrack];
+            fixedMusicImage.src = 'assets/albem_arts/' + Image[currentTrack];
+
+        }
+        return playAudio();
+
+    }
+
+    function volumeChange() {
+        sessionStorage.setItem('volume', volume.value);
+
+        audio.volume = volume.value / 100;
+        showVolume.innerHTML = volume.value + '%';
+
+
+
+        if (audio.volume == 0) {
+            return muteVolume();
+        }
+
+    }
+    let volume_value = sessionStorage.getItem('volume');
+
+
+    if (volume_value) {
+        audio.volume = volume_value / 100;
+        showVolume.innerHTML = volume_value + '%';
+    } else {
+        audio.volume = volume.value / 100;
+        showVolume.innerHTML = volume.value + '%';
+    }
+
+
+    function muteVolume() {
+        if (volume.value > 0) {
+            volume.value = 0;
+            showVolume.innerHTML = 0;
+            mutedImg.src = 'assets/ControlersIcon/volume-xmark.svg';
+            audio.volume = 0;
+            return pauseAudio();
+        }
+    }
+
+
+
+    function darker() {
+        sessionStorage.setItem('dark', 1);
+        darkMode()
+    }
+
+    function lighter() {
+        sessionStorage.setItem('dark', 0);
+        enableDarkMod();
+    }
+
+    let darkerclick = sessionStorage.getItem('dark');
+
+    if (darkerclick == 0) {
+        enableDarkMod();
+    } else {
+        darkMode();
+    }
+
+    function darkMode() {
+        lighter_btn.style.display = 'flex';
+        darker_btn.style.display = 'none';
+        music_title.style.color = 'white';
+        artist_min.style.color = 'white';
+        showVolume.style.color = 'white';
+        body.style.color = 'white';
+        footer.style.color = 'white';
+        main.style.backgroundColor = '#a4a4a4d4a4a4a4d418';
+        music_controlls.style.backgroundColor = '#4a4a4a';
+        input.style.backgroundColor = '#a4a4a4d4a4a4a4d418';
+        input.style.color = '#a4a4a4d4';
+
+        root.style.setProperty('--audio-controls', '#838383');
+        root.style.setProperty('--backgroundColor', ' #0b0b0b');
+        root.style.setProperty('--hover-backgrounColor', '#9b9b9b');
+        root.style.setProperty('--hover-color', text_color);
+        root.style.setProperty('--text-color', '#dddddd');
+
+        for (let i = 0; i < count_imgs.length; i++) {
+            count_img = document.querySelectorAll('.cont_img')[i];
+            count_img.style.filter = "invert(10)";
+            count_img.style.opacity = "1";
+        }
+
+        for (var k = 0; k < details.length; k++) {
+
+            detail = document.querySelectorAll('.details')[k];
+
+            detail.style.color = "silver";
+        }
+
+    }
+
+
+
+    function enableDarkMod() {
+        lighter_btn.style.display = 'none';
+        darker_btn.style.display = 'flex';
+        music_title.style.color = text_color;
+        artist_min.style.color = text_color;
+        showVolume.style.color = text_color;
+        body.style.color = text_color;
+        footer.style.color = text_color;
+        music_controlls.style.backgroundColor = '#ebe8e8';
+        music_controlls.style.color = '#a4a4a4d4';
+        root.style.setProperty('--audio-controls', '#ebe8e8');
+        root.style.setProperty('--backgroundColor', '#d0d0d0');
+        root.style.setProperty('--text-color', '#272727');
+        root.style.setProperty('--hover-backgrounColor', '#a4a4a4d4');
+        for (let i = 0; i < count_imgs.length; i++) {
+            count_img = document.querySelectorAll('.cont_img')[i];
+            count_img.style.filter = "";
+        }
+        for (var k = 0; k < details.length; k++) {
+
+            detail = document.querySelectorAll('.details')[k];
+
+            detail.style.color = "#383838fd";
+        }
+    }
+
+
+
+    //   full screen player music
+
+    function full_screen() {
+        footerImg.style.position = "fixed";
+        footerImg.style.width = "100%";
+        footerImg.style.height = "100vh";
+        footerImg.style.top = "0";
+        footerImg.style.left = "0";
+        footerImg.style.objectFit = "cover";
+        footerImg.style.transition = ".1s";
+        footerImg.style.filter = "brightness(.5) contrast(1.1) ";
+        controler.style.position = "fixed";
+        exitFullScreen.style.display = "block";
+        fullScreen.style.display = "none";
+        exitFullScreen.style.margin = "8px 0 0 40px";
+        fixed_albem_detail.style.display = "flex";
+
+
+
+        darkMode();
+
+    }
+
+    function exit_full_screen() {
+        footerImg.style.width = "50px";
+        footerImg.style.height = "50px";
+        footerImg.style.position = "relative";
+        footerImg.style.objectFit = "cover";
+        footerImg.style.transition = ".1s";
+        footerImg.style.filter = "brightness(1)";
+        controler.style.position = "relative";
+        exitFullScreen.style.display = "none";
+        fullScreen.style.display = "block";
+        exitFullScreen.style.position = "relative";
+        exitFullScreen.style.margin = "0";
+        fixed_albem_detail.style.display = "none";
+
+
+
+
+
+        var darkerclick = sessionStorage.getItem('dark');
+
+        if (darkerclick == 1) {
+            darkMode();
+        }
+        if (darkerclick == 0) {
+            enableDarkMod();
+        }
+
+    }
+    //------------------------------------
+
+
+    // aler dialog
+    function delete_music(card) {
+        var delete_container = document.querySelector('.delete_container')
+        var delete_music_name = document.querySelector('.delete_music_name')
+        var delete_music_image = document.querySelector('.delete_music_image')
+        var delete_music_id = document.querySelector('.delete_music_id')
+        delete_container.style.display = 'flex';
+
+        var music_name = card.getAttribute("data-music_name");
+        var music_image = card.getAttribute("data-music_image");
+        var music_id = card.getAttribute("data-music_id");
+
+        delete_music_name.innerHTML = music_name;
+        delete_music_image.src = 'assets/albem_arts/' + music_image + '';
+        delete_music_id.value = music_id;
+    }
+
+    function close_delete_dialog() {
+        var delete_container = document.querySelector('.delete_container')
+        delete_container.style.display = 'none';
+
+    }
+
+    var user_editor_container = document.querySelector('.user_editor_container');
+
+    function show_edit_diaog() {
+        user_editor_container.style.display = 'flex'
+    }
+
+    function close_edit_diaog() {
+        user_editor_container.style.display = 'none'
+    }
+
+
+    var music_editor_container = document.querySelector('.music_editor_container');
+
+    var edit_artist_name = document.querySelector('.edit_artist_name');
+    var edit_music_title = document.querySelector('.edit_music_title');
+    var edit_music_image = document.querySelector('.edit_music_image');
+    var edit_pre_albem_art = document.querySelector('.edit_pre_albem_art');
+    var edit_music_id = document.querySelector('.edit_music_id');
+
+    function show_music_editor(data) {
+        music_editor_container.style.display = 'flex'
+        var music_artist = data.getAttribute("data-music_artist");
+        var music_title = data.getAttribute("data-music_title");
+        var music_albem_art = data.getAttribute("data-music_image");
+        var music_edit_id = data.getAttribute("data-music_id");
+
+        edit_artist_name.value = music_artist;
+        edit_music_title.value = music_title;
+        edit_music_image.src = 'assets/albem_arts/' + music_albem_art + '';
+        edit_pre_albem_art.value = music_albem_art;
+        edit_music_id.value = music_edit_id;
+
+
+    }
+
+    function close_music_editor() {
+        music_editor_container.style.display = 'none'
+    }
+
+    //------------------------------------------------
+    //     checke file 
+    function checked_albem_art(albem_art) {
+        edit_music_image.src = URL.createObjectURL(albem_art.files[0]);
+    }
+
+    function checked_image(from_input) {
+        var to_input_image = document.querySelector('.myimage');
+        var imag_update_btn = document.querySelector('.imag_update_btn');
+
+        to_input_image.src = URL.createObjectURL(from_input.files[0]);
+        imag_update_btn.style.display = 'block';
+
+
+    }
+
+    function checked_profile_image(from_input) {
+        var pro_image = document.querySelector('.pro_image');
+        pro_image.src = URL.createObjectURL(from_input.files[0]);
+
+    }
+    //----------------------------------- 
+
+
+    //        side nav    
+
+    var nav_text = document.querySelectorAll('#nav_text');
+    var ul = document.querySelectorAll('#ul');
+    var nav = document.getElementById('nav');
+    var li = document.querySelectorAll('#li');
+    var nav_show = document.getElementById('nav_show');
+    var nav_closer = document.getElementById('nav_closer');
+    var play_list_btn = document.querySelector('.play_list_btn');
+
+
+    function close_side_nav() {
+        sessionStorage.setItem('side_nav', 0);
+        close_sideNavForSession()
+    }
+
+    function close_sideNavForSession() {
+        nav_text.forEach((nav_texts) => {
+            nav_texts.style.fontSize = 0;
+        });
+        ul.forEach((uls) => {
+            uls.style.width = '50px';
+        });
+        li.forEach((lis) => {
+            lis.style.width = 'fit-content';
+        });
+        main.style.left = '60px';
+        main.style.width = "92%";
+        nav.style.width = '60px'
+        nav_show.style.display = 'block';
+        nav_closer.style.display = 'none';
+        play_list_btn.style.width = '50px';
+        play_list_btn.innerHTML = '+';
+    }
+
+    function show_side_nav() {
+
+        sessionStorage.setItem('side_nav', 1);
+        show_sideNavForSession()
+    }
+
+    function show_sideNavForSession() {
+        nav_text.forEach((nav_texts) => {
+            nav_texts.style.fontSize = '17px';
+        });
+        ul.forEach((uls) => {
+            uls.style.width = '100%';
+        });
+        li.forEach((lis) => {
+            lis.style.width = '90%';
+        });
+        main.style.left = '170px';
+        main.style.width = "80%";
+        nav.style.width = '160px'
+        nav_show.style.display = 'none';
+        nav_closer.style.display = 'block';
+        play_list_btn.style.width = '160px'
+        play_list_btn.innerHTML = 'add playlist'
+    }
+
+    if (screen.width <= 600) {
+        sessionStorage.setItem('side_nav', 0);
+        close_sideNavForSession()
+
+    }
+
+    var side_nav_session = sessionStorage.getItem('side_nav');
+
+    if (side_nav_session == 0) {
+        close_sideNavForSession()
+    }
+    if (side_nav_session == 1) {
+        show_sideNavForSession()
+    }
+
+
+    //       nav button active
+    side_navs[0].classList.add('active');
+
+    side_navs[0].addEventListener('click', function() {
+        side_navs[0].classList.add('active');
+        side_navs[1].classList.remove('active');
+        side_navs[2].classList.remove('active');
+
+    })
+    side_navs[1].addEventListener('click', function() {
+        side_navs[1].classList.add('active');
+        side_navs[0].classList.remove('active');
+        side_navs[2].classList.remove('active');
+
+    })
+
+    // ---------------------------------------
+    //-------- play list input show button 
+    function add_playlist() {
+        var play_list_name = document.querySelector('.play_list_name');
+        play_list_name.style.display = 'block';
+        show_sideNavForSession();
+    }
+    //-----------------------------
+
+
+
+    //  music add to play list
+    function show_playlist_form(music_id) {
+
+        var add_playlist_alert = document.querySelector('.add_playlist_alert');
+        var list_music_id = document.querySelector('.list_music_id');
+        list_music_id.value = music_id;
+        add_playlist_alert.style.display = 'block';
+
+    }
+    //----------------------------
+</script>
+
+</html>
